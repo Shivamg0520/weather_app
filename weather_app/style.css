@@ -1,5 +1,7 @@
+/* Google Fonts import for Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+/* Universal styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Body styles */
 body {
     background: linear-gradient(135deg, #00feba, #5b548a); /* Gradient background */
     display: flex;
@@ -14,8 +17,10 @@ body {
     align-items: center;
     min-height: 100vh; /* Full viewport height */
     color: #fff;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
+/* Main weather app container */
 .weather-app {
     background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
     border-radius: 20px;
@@ -26,14 +31,17 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px); /* Glassmorphism effect */
     -webkit-backdrop-filter: blur(10px); /* For Safari */
+    margin: 20px; /* Margin for spacing on all sides, especially for mobile */
 }
 
+/* Heading style */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
     letter-spacing: 1px;
 }
 
+/* Search box container */
 .search-box {
     display: flex;
     align-items: center;
@@ -41,6 +49,7 @@ h1 {
     margin-bottom: 40px;
 }
 
+/* Input field style */
 .search-box input {
     border: none;
     outline: none;
@@ -54,10 +63,12 @@ h1 {
     caret-color: #fff; /* Cursor color */
 }
 
+/* Placeholder text style for input */
 .search-box input::placeholder {
     color: #ccc;
 }
 
+/* Search button style */
 .search-box button {
     border: none;
     outline: none;
@@ -69,55 +80,54 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease; /* Smooth hover effect */
 }
 
+/* Search button hover effect */
 .search-box button:hover {
     background: #eee;
 }
 
+/* Image inside the search button (if applicable) */
 .search-box button img {
     width: 20px;
     height: 20px;
 }
 
-/* Add a search icon image if you have one, or comment this out */
-/* .search-box button {
-    background-image: url('images/search.png');
-    background-size: 20px;
-    background-position: center;
-    background-repeat: no-repeat;
-} */
-
-
+/* Weather display section - initially hidden */
 .weather-display {
     display: none; /* JavaScript will make this visible */
     animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
 
+/* Weather icon image */
 .weather-icon {
     width: 120px;
     margin-bottom: 20px;
 }
 
+/* Temperature display */
 .temp {
     font-size: 4rem;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
+/* City name display */
 .city {
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: 20px;
 }
 
+/* Weather description display */
 .description {
     font-size: 1.2rem;
     margin-bottom: 30px;
     text-transform: capitalize; /* Capitalize first letter */
 }
 
+/* Humidity and Wind details container */
 .details {
     display: flex;
     justify-content: space-around;
@@ -126,58 +136,113 @@ h1 {
     font-size: 1.1rem;
 }
 
+/* Individual detail column (humidity/wind) */
 .col {
     display: flex;
     align-items: center;
     text-align: left;
 }
 
+/* Icons within detail columns */
 .col img {
     width: 40px;
     margin-right: 15px;
 }
 
+/* Paragraph text within detail columns */
 .col p {
     margin: 0;
 }
 
+/* Error message display - initially hidden */
 .error-msg {
     display: none; /* JavaScript will make this visible */
-    color: #ff6b6b;
+    color: #ff6b6b; /* Reddish error color */
     font-size: 1.1rem;
     margin-top: 20px;
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation for error */
 }
 
-/* Animations */
+/* Keyframe animation for fading in elements */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Basic responsiveness for smaller screens */
+/* ===================================== */
+/* Responsive Design (Media Queries)     */
+/* ===================================== */
+
+/* Styles for screens smaller than 600px (typical tablet portrait/large phone) */
 @media (max-width: 600px) {
     .weather-app {
-        padding: 30px 20px;
+        padding: 30px 20px; /* Slightly less padding */
+        margin: 15px; /* Ensure margin around the app */
     }
     h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Smaller heading */
+        margin-bottom: 25px;
+    }
+    .search-box {
+        flex-direction: column; /* Input and button stack vertically */
+        margin-bottom: 30px;
+    }
+    .search-box input {
+        width: 100%; /* Input takes full width */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 15px; /* Space between input and button */
+    }
+    .search-box button {
+        width: 45px; /* Slightly smaller button */
+        height: 45px;
+    }
+    .weather-icon {
+        width: 100px; /* Smaller main weather icon */
+        margin-bottom: 15px;
+    }
+    .temp {
+        font-size: 3.5rem; /* Adjusted temperature font size */
+        margin-bottom: 0;
+    }
+    .city {
+        font-size: 1.8rem; /* Adjusted city font size */
+        margin-bottom: 15px;
+    }
+    .description {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    .details {
+        flex-direction: column; /* Humidity and Wind stack vertically */
+        gap: 20px; /* Space between the stacked items */
+        margin-top: 25px;
+    }
+    .col {
+        width: 100%; /* Columns take full width */
+        justify-content: center; /* Center content within columns */
+    }
+    .col img {
+        width: 35px; /* Smaller icons for humidity/wind */
+        margin-right: 10px;
+    }
+    .error-msg {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+}
+
+/* Styles for very small screens (e.g., old/smaller smartphones) */
+@media (max-width: 400px) {
+    .weather-app {
+        padding: 25px 15px; /* Even less padding */
+    }
+    h1 {
+        font-size: 1.8rem;
     }
     .temp {
         font-size: 3rem;
     }
     .city {
-        font-size: 1.5rem;
-    }
-    .description {
-        font-size: 1rem;
-    }
-    .details {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .col {
-        width: 100%;
-        justify-content: center;
+        font-size: 1.6rem;
     }
 }
