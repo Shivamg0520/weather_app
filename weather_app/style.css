@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #00feba, #5b548a); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    color: #fff;
+}
+
+.weather-app {
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    padding: 12px 20px;
+    border-radius: 30px;
+    flex: 1; /* Occupy available space */
+    margin-right: 15px;
+    font-size: 1rem;
+    color: #fff;
+    caret-color: #fff; /* Cursor color */
+}
+
+.search-box input::placeholder {
+    color: #ccc;
+}
+
+.search-box button {
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 50%; /* Make it round */
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #eee;
+}
+
+.search-box button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Add a search icon image if you have one, or comment this out */
+/* .search-box button {
+    background-image: url('images/search.png');
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+
+.weather-display {
+    display: none; /* JavaScript will make this visible */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+.weather-icon {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.temp {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.city {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-transform: capitalize; /* Capitalize first letter */
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.col p {
+    margin: 0;
+}
+
+.error-msg {
+    display: none; /* JavaScript will make this visible */
+    color: #ff6b6b;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Basic responsiveness for smaller screens */
+@media (max-width: 600px) {
+    .weather-app {
+        padding: 30px 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .temp {
+        font-size: 3rem;
+    }
+    .city {
+        font-size: 1.5rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .details {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .col {
+        width: 100%;
+        justify-content: center;
+    }
+}
